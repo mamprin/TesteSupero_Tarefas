@@ -1,0 +1,30 @@
+﻿@model TesteSupero.Models.Tarefa
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Tarefa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeTarefa)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NomeTarefa)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusTarefa)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StatusTarefa)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdTarefa">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

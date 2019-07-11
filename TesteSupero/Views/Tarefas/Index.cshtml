@@ -1,0 +1,49 @@
+﻿@model IEnumerable<TesteSupero.Models.Tarefa>
+
+@{
+    ViewData["Title"] = "Lista de Tarefas";
+}
+
+<h2>Lista de Tarefas</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Nome da Tarefa
+            </th>
+            <th>
+                Tarefa concluída?
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeTarefa)
+                </td>
+                <td>
+                    @if (item.StatusTarefa == true)
+                    {
+                        <span>Sim</span>
+                    }
+                    else
+                    {
+                        <span>Não</span>
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdTarefa" class="btn btn-primary btn-sm">Editar</a>
+
+                    <a asp-action="Delete" asp-route-id="@item.IdTarefa" class="btn btn-danger btn-sm">Remover</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a asp-action="Create" class="btn btn-info btn-sm">Nova Tarefa</a>
+</p>
